@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+  <body>
+    <h1 th:text="Registro">form</h1>
+    <form action="#"  th:action="@{/afegirCriminal}"  th:object="${Criminal}" method="POST" >
+      <div>
+        <label th:text="Id">Id Criminal</label>
+        <label>
+          <input type="number" th:field="*{id}"/>
+        </label>
+        <p th:each="error: ${#fields.errors('id')}"
+           th:text="${error}">Validation error</p>
+      </div>
+      <div>
+        <label th:text="Name">Nombre Criminal</label>
+        <label>
+          <input type="text" th:field="*{nombre}"/>
+        </label>
+        <p th:each="error: ${#fields.errors('nombre')}"
+           th:text="${error}">Validation error</p>
+      </div>
+      <div>
+        <label th:text="apellido">Apellido Criminal</label>
+        <label>
+          <input type="text"  th:field="*{apellido}"/>
+        </label>
+        <p th:each="error : ${#fields.errors('apellido')}"
+           th:text="${error}">Validation error</p>
+      </div>
+      <div>
+        <label th:text="crimen">Crimen Criminal</label>
+        <label>
+          <input type="text"  th:field="*{crimen}"/>
+        </label>
+        <p th:each="error : ${#fields.errors('crimen')}"
+           th:text="${error}">Validation error</p>
+      </div>
+      <button type="submit" th:text="Submit">submit</button>
+    </form>
+    <br><br><br><br>
+    <form th:action="@{/logout}" method="post">
+      <input type="submit" value="Logout"/>
+    </form>
+  </body>
+</html>

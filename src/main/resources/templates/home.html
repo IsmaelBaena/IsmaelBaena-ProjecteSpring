@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+    <head>
+        <meta charset="UTF-8">
+        <title>home</title>
+    </head>
+    <body>
+        <form action="#"  th:action="@{lista}"  method="post">
+                <input type="submit" value="Lista"/>
+        </form>
+        <form action="#"  th:action="@{afegir}"  method="post">
+            <input  type="submit"  value="Add Criminal"/>
+        </form>
+        <br>
+        <form th:action="@{/login}" method="post">
+            <input type="submit" value="Login"/>
+        </form>
+        <form th:action="@{/registration}" method="get">
+            <input type="submit" value="Register"/>
+        </form>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Logout"/>
+        </form>
+    </body>
+</html>

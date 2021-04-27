@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>lista</title>
+    </head>
+    <body>
+        <tbody>
+        <h1>Lista Criminales</h1>
+        <form action="#"  th:action="@{listaOrdenada}"  method="post">
+            <input type="submit" value="Ordenar Lista por Id"/>
+        </form>
+            <tr th:each="Criminal : ${llistarCriminal}">
+                <br>
+                <td th:text="${Criminal.id}">Id</td>
+                <td th:text="${Criminal.nombre}">Nombre</td>
+                <td th:text="${Criminal.apellido}">Apellido</td>
+                <td th:text="${Criminal.crimen}">Crimen</td>
+
+                <form action="#"  th:action="@{update/{name}(name = ${Criminal.nombre})}" th:object="${Criminal}"  method="post">
+                    <input type="submit" value="Update"/>
+                </form>
+
+                <form action="#"  th:action="@{delete/{name}(name = ${Criminal.nombre})}" th:object="${Criminal}"  method="post">
+                    <input  type="submit"  value="Remove"/>
+                </form>
+            </tr>
+        </tbody>
+        <br><br><br><br><br>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Logout"/>
+        </form>
+    </body>
+</html>
